@@ -195,11 +195,18 @@ type AlumniRepository struct {
 	collection *mongo.Collection
 }
 
-func NewAlumniRepository(db *mongo.Database) *AlumniRepository {
-	return &AlumniRepository{
-		collection: db.Collection("alumni"),
-	}
+// func NewAlumniRepository(db *mongo.Database) *AlumniRepository {
+// 	return &AlumniRepository{
+// 		collection: db.Collection("alumni"),
+// 	}
+// }
+
+func NewAlumniRepository(db *mongo.Database, collectionName string) *AlumniRepository {
+    return &AlumniRepository{
+        collection: db.Collection(collectionName),
+    }
 }
+
 
 // CREATE
 func (r *AlumniRepository) CreateAlumni(ctx context.Context, alumni *model.Alumni) (*model.Alumni, error) {

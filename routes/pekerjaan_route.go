@@ -73,7 +73,7 @@ import (
 )
 
 func PekerjaanRoutes(app *fiber.App, db *mongo.Database) {
-	repo := repository.NewPekerjaanRepository(db)
+	repo := repository.NewPekerjaanRepository(db, "pekerjaan_alumni", "alumni")
 	pekerjaan := app.Group("/pekerjaan", middleware.AuthRequired())
 
 

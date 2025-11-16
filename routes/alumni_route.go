@@ -59,7 +59,7 @@ import (
 
 func AlumniRoutes(app *fiber.App, db *mongo.Database) {
 	// inject repository ke service
-	repo := repository.NewAlumniRepository(db)
+	repo := repository.NewAlumniRepository(db, "alumni")
 	alumni := app.Group("/alumni", middleware.AuthRequired())
 
 	// CREATE → hanya admin

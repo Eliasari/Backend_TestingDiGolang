@@ -213,7 +213,7 @@ func LoginHandler(repo *repository.UserRepository) fiber.Handler {
 }
 
 // LoginServiceMongo melakukan validasi user dan generate token JWT
-func LoginServiceMongo(ctx context.Context, repo *repository.UserRepository, req model.LoginRequest) (*model.LoginResponse, error) {
+func LoginServiceMongo(ctx context.Context, repo repository.IUserRepository, req model.LoginRequest) (*model.LoginResponse, error) {
     user, err := repo.FindUserByUsernameOrEmail(ctx, req.Username)
     if err != nil {
         return nil, errors.New("username atau password salah")

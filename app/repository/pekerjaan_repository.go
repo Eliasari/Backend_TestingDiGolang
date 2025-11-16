@@ -330,10 +330,10 @@ type PekerjaanRepository struct {
 	colAlumni    *mongo.Collection
 }
 
-func NewPekerjaanRepository(db *mongo.Database) *PekerjaanRepository {
+func NewPekerjaanRepository(db *mongo.Database, pekerjaanCollName, alumniCollName string) *PekerjaanRepository {
 	return &PekerjaanRepository{
-		colPekerjaan: db.Collection("pekerjaan_alumni"),
-		colAlumni:    db.Collection("alumni"), 
+		colPekerjaan: db.Collection(pekerjaanCollName),
+		colAlumni:    db.Collection(alumniCollName),
 	}
 }
 
